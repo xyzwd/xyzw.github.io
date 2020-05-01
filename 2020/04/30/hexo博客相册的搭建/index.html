@@ -225,31 +225,31 @@
 <h2 id="安装Python软件"><a href="#安装Python软件" class="headerlink" title="安装Python软件"></a>安装Python软件</h2><blockquote>
 <p>1.第一个是默认安装，第二个是自定义安装，注意Add要勾选</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/Duf3eaAlJPgbZzq.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/Duf3eaAlJPgbZzq.png" alt></p>
 <blockquote>
 <p>2.用默认的就可以了，不用其他的直接next</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/CVczhGMN31tagpb.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/CVczhGMN31tagpb.png" alt></p>
 <blockquote>
 <p>3.若出现图下这两种情况，恭喜你！安装成功</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/TJVl9Wiv7kIYC3s.png" alt=""></p>
-<p><img src="https://i.loli.net/2020/04/30/j8qYyJUCLxcdrZ9.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/TJVl9Wiv7kIYC3s.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/j8qYyJUCLxcdrZ9.png" alt></p>
 <h2 id="准备好相册存储库"><a href="#准备好相册存储库" class="headerlink" title="准备好相册存储库"></a>准备好相册存储库</h2><blockquote>
 <p>1.在github中创建一个新的仓库，命名为BlogBackup<br>github官网:<a href="https://github.com（保存这个仓库地址等会要用）" target="_blank" rel="noopener">https://github.com（保存这个仓库地址等会要用）</a></p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/DuOKtoCUI5wFhr4.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/DuOKtoCUI5wFhr4.png" alt></p>
 <blockquote>
 <p>2.将下面的github仓库中的文件以zip格式下载到本地仓库地址：<a href="https://github.com/lawlite19/Blog-Back-Up" target="_blank" rel="noopener">https://github.com/lawlite19/Blog-Back-Up</a> (下载后解压)</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/6wUL51XBHTqJhiu.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/6wUL51XBHTqJhiu.png" alt></p>
 <blockquote>
 <p>3.进入解压后的文件中，将min_photos和photos两个文件夹中的照片全部删除，并将自己要上传的照片放到photos文件夹中，照片的命名规则为：2020-05-01(1-n).jpg   （jpg可更改为其他图片格式）</p>
 </blockquote>
 <blockquote>
 <p>4.解压后的文件中，使用你自己的编译软件（例如：Visaul Studio Code）打开tool.py文件，并将文件中的地址改成自己的博客文件夹中的data.json地址</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/OSy2nH1LEYTztiv.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/OSy2nH1LEYTztiv.png" alt></p>
 <blockquote>
 <p>5.在解压后的文件中，右击鼠标，点击git bash here将该文件提交到自己刚刚新建的github库（BlogBackup）中</p>
 </blockquote>
@@ -264,19 +264,19 @@
 然后输入git push photo master  （将文件提交到github仓库）</code></pre><blockquote>
 <p>6.进入到你的博客目录下使用Git执行 hexo new page “photos”,就会出现一个这样的新目录</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/meKUPlTCFf7tsvb.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/meKUPlTCFf7tsvb.png" alt></p>
 <blockquote>
 <p>7.配置 Yilia 主题让其显示出来.在Blog/themes/yilia/_config.yml 主题文件中如图这样设置</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/BJtfRCAVTyW8dKg.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/BJtfRCAVTyW8dKg.png" alt></p>
 <blockquote>
 <p>8..将样式文件放到photos文件夹下样式文件地址：<a href="https://github.com/lawlite19/Blog-Back-Up/tree/master/blog_photos_copy" target="_blank" rel="noopener">https://github.com/lawlite19/Blog-Back-Up/tree/master/blog_photos_copy</a> </p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/jur8W6XHwO9PJEx.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/jur8W6XHwO9PJEx.png" alt></p>
 <blockquote>
 <p>9.修改样式文件中的ins.js文件，主要是里面的render函数其中的url对应到你的github放图片的地址（即第1步创建的仓库地址）</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/TAsWbp6aqk4BLnX.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/TAsWbp6aqk4BLnX.png" alt></p>
 <blockquote>
 <p>10.进入图片文件夹中（即下载的Blog-Back-Up-master文件夹中）使用tool.py脚本处理图片在Blog-Back-Up-master文件夹中打开Git页面中，输入  python tool.py  处理图片</p>
 </blockquote>
@@ -403,7 +403,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://xyzwd.github.io/2020/04/30/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%86%8C%E7%9A%84%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://xyzwd.github.io/2020/04/30/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%86%8C%E7%9A%84%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
     </div>
 </div>
 
