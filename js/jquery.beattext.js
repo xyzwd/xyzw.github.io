@@ -22,7 +22,9 @@
             };
             var text = obj.text();
             var newMarkup = '';
-            for (var i = 0; i <= text.length; i++) { var character="text.slice(i," i + 1); newmarkup ? '<span class="beat-char">' + character + '' : character
+            for (var i = 0; i <= text.length; i++) {
+                var character = text.slice(i, i + 1);
+                newMarkup += ($.trim(character)) ? '<span class="beat-char">' + character + '</span>' : character
             }
             obj.html(newMarkup);
 			if(!options.isAuth){			
@@ -92,4 +94,4 @@
 		
 	}
 
-})(jQuery);</=>
+})(jQuery);

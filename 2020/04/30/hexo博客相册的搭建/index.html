@@ -108,6 +108,96 @@
 					<a class="mail" target="_blank" href="mailto:hwqdqqyx@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
+
+<!-- 《左侧边栏添加--APlayer音乐播放器 -->
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+	<!-- // 这里div的样式是笔者自己修改过的，你可以直接使用APlayer官方的原配置：<div id="aplayer"></div> -->
+	<div id="aplayer" style="position:absolute;left;0;bottom:0;"></div>
+	<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
+	<script>
+		const ap = new APlayer({
+			container: document.getElementById('aplayer'),
+			autoplay: false,
+			listFolded: true,
+			listMaxHeight: 90,
+			order: 'list',
+			loop: 'all',
+			theme: '#b7daff',
+			preload: 'none',
+			mutex: true,
+			lrcType: 3,
+			volume: 0.7,
+			fixed: true,
+			audio: [
+        {
+            name: '前前前世',
+            artist: 'そらる / まふまふ',
+            url: 'http://music.163.com/song/media/outer/url?id=438803182.mp3',
+            cover: 'http://i2.hdslb.com/bfs/archive/3388c1168f0766b349548c946f2ae77668d9135d.jpg',
+            lrc: '/./dist/music/lrc/29751409.lrc',
+            theme: '#46718b'
+        },
+        {
+            name: '打上花火',
+            artist: '米津玄师',
+            url: 'http://music.163.com/song/media/outer/url?id=512358200.mp3',
+            cover: 'http://p1.music.126.net/91YBBcxEO37hoIfm9W5TjA==/18885211718935735.jpg',
+            theme: '#46718b'
+        },
+		{
+            name: '我ら思う、故に我ら在り',
+            artist: '氣志團',
+            url: 'http://music.163.com/song/media/outer/url?id=40729281.mp3',
+            cover: 'http://p1.music.126.net/5kUo3f5_GyyQNiSvPOIhXA==/18610333813518047.jpg',
+            theme: '#46718b'
+        },
+		{
+            name: 'Anything Goes! (「仮面ライダーオーズ/000」)',
+            artist: '大黒摩季',
+            url: 'http://music.163.com/song/media/outer/url?id=38689229.mp3',
+            cover: 'http://p2.music.126.net/mQxtTZ1t2ZHS8LJ4qEDLWQ==/2543170398297999.jpg',
+            lrc: '/./dist/music/lrc/38689229.lrc',
+	    theme: '#46718b'
+        },
+		{
+            name: 'Break the Chain (「仮面ライダーキバ」)',
+            artist: 'Tourbillon',
+            url: 'http://music.163.com/song/media/outer/url?id=38689234.mp3',
+            cover: 'http://p2.music.126.net/mQxtTZ1t2ZHS8LJ4qEDLWQ==/2543170398297999.jpg',
+            lrc: '/./dist/music/lrc/38689234.lrc',
+	    theme: '#46718b'
+        },
+		{
+            name: 'Just Live More',
+            artist: '湘南乃風',
+            url: 'http://rh01.sycdn.kuwo.cn/resource/n2/99/25/305360002.mp3',
+            cover: 'http://img1.kuwo.cn/star/starheads/120/82/85/3360615613.jpg',
+	    lrc: '/./dist/music/lrc/湘南乃風-Just Live More.lrc',
+            theme: '#46718b'
+        }
+    ]
+		});
+	
+
+		const colorThief = new ColorThief();
+		const setTheme = (index) => {
+			if (!ap.list.audios[index].theme) {
+				colorThief.getColorAsync(ap.list.audios[index].cover, function(color) {
+					ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
+				});
+			}
+		};
+		setTheme(ap.list.index);
+		ap.on('listswitch', (data) => {
+			setTheme(data.index);
+		});
+	</script>
+	
+	<!-- 左侧边栏添加--APlayer音乐播放器》 -->
+
+
 		</nav>
 	</header>		
 </div>
@@ -226,31 +316,31 @@
 <h2 id="安装Python软件"><a href="#安装Python软件" class="headerlink" title="安装Python软件"></a>安装Python软件</h2><blockquote>
 <p>1.第一个是默认安装，第二个是自定义安装，注意Add要勾选</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/Duf3eaAlJPgbZzq.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/Duf3eaAlJPgbZzq.png" alt=""></p>
 <blockquote>
 <p>2.用默认的就可以了，不用其他的直接next</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/CVczhGMN31tagpb.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/CVczhGMN31tagpb.png" alt=""></p>
 <blockquote>
 <p>3.若出现图下这两种情况，恭喜你！安装成功</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/TJVl9Wiv7kIYC3s.png" alt></p>
-<p><img src="https://i.loli.net/2020/04/30/j8qYyJUCLxcdrZ9.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/TJVl9Wiv7kIYC3s.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/04/30/j8qYyJUCLxcdrZ9.png" alt=""></p>
 <h2 id="准备好相册存储库"><a href="#准备好相册存储库" class="headerlink" title="准备好相册存储库"></a>准备好相册存储库</h2><blockquote>
 <p>1.在github中创建一个新的仓库，命名为BlogBackup<br>github官网:<a href="https://github.com（保存这个仓库地址等会要用）" target="_blank" rel="noopener">https://github.com（保存这个仓库地址等会要用）</a></p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/DuOKtoCUI5wFhr4.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/DuOKtoCUI5wFhr4.png" alt=""></p>
 <blockquote>
 <p>2.将下面的github仓库中的文件以zip格式下载到本地仓库地址：<a href="https://github.com/lawlite19/Blog-Back-Up" target="_blank" rel="noopener">https://github.com/lawlite19/Blog-Back-Up</a> (下载后解压)</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/6wUL51XBHTqJhiu.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/6wUL51XBHTqJhiu.png" alt=""></p>
 <blockquote>
 <p>3.进入解压后的文件中，将min_photos和photos两个文件夹中的照片全部删除，并将自己要上传的照片放到photos文件夹中，照片的命名规则为：2020-05-01(1-n).jpg   （jpg可更改为其他图片格式）</p>
 </blockquote>
 <blockquote>
 <p>4.解压后的文件中，使用你自己的编译软件（例如：Visaul Studio Code）打开tool.py文件，并将文件中的地址改成自己的博客文件夹中的data.json地址</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/OSy2nH1LEYTztiv.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/OSy2nH1LEYTztiv.png" alt=""></p>
 <blockquote>
 <p>5.在解压后的文件中，右击鼠标，点击git bash here将该文件提交到自己刚刚新建的github库（BlogBackup）中</p>
 </blockquote>
@@ -265,19 +355,19 @@
 然后输入git push photo master  （将文件提交到github仓库）</code></pre><blockquote>
 <p>6.进入到你的博客目录下使用Git执行 hexo new page “photos”,就会出现一个这样的新目录</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/meKUPlTCFf7tsvb.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/meKUPlTCFf7tsvb.png" alt=""></p>
 <blockquote>
 <p>7.配置 Yilia 主题让其显示出来.在Blog/themes/yilia/_config.yml 主题文件中如图这样设置</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/BJtfRCAVTyW8dKg.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/BJtfRCAVTyW8dKg.png" alt=""></p>
 <blockquote>
 <p>8..将样式文件放到photos文件夹下样式文件地址：<a href="https://github.com/lawlite19/Blog-Back-Up/tree/master/blog_photos_copy" target="_blank" rel="noopener">https://github.com/lawlite19/Blog-Back-Up/tree/master/blog_photos_copy</a> </p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/jur8W6XHwO9PJEx.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/jur8W6XHwO9PJEx.png" alt=""></p>
 <blockquote>
 <p>9.修改样式文件中的ins.js文件，主要是里面的render函数其中的url对应到你的github放图片的地址（即第1步创建的仓库地址）</p>
 </blockquote>
-<p><img src="https://i.loli.net/2020/04/30/TAsWbp6aqk4BLnX.png" alt></p>
+<p><img src="https://i.loli.net/2020/04/30/TAsWbp6aqk4BLnX.png" alt=""></p>
 <blockquote>
 <p>10.进入图片文件夹中（即下载的Blog-Back-Up-master文件夹中）使用tool.py脚本处理图片在Blog-Back-Up-master文件夹中打开Git页面中，输入  python tool.py  处理图片</p>
 </blockquote>
@@ -476,24 +566,33 @@
   
 
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//billts.site/extra_css/gitment.css">
-<script src="//billts.site/js/gitment.js"></script>
+
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment({
-  id: "Thu Apr 30 2020 16:08:51 GMT+0800",
-  owner: 'xyzwd',
-  repo: 'xyzwd.giyhub.io',
-  oauth: {
-    client_id: '544 fd9939f07f17a1532',
-    client_secret: '9e38ec56f3cb48e09077e0eab8c30c4d7636601d',
-  },
-})
-gitment.render('gitment-ctn')
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "kcuJulOLBf3hC9TjWPBPY6a5-gzGzoHsz",
+            app_key: "6krcFdhPSaxFe1bVvPXMw7xg",
+            placeholder: "Just go go",
+            avatar:"retro"
+        });
+    }
 </script>
+    </section>
   
-
-
           </div>
         </div>
       </div>
