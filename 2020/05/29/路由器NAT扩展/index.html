@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | 邪王真眼的博客</title>
+  <title>路由器NAT扩展 | 邪王真眼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="邪王真眼的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index.html">
+  <meta name="description" content="路由器NAT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由器NAT扩展">
+<meta property="og:url" content="http://yoursite.com/2020/05/29/%E8%B7%AF%E7%94%B1%E5%99%A8NAT%E6%89%A9%E5%B1%95/index.html">
 <meta property="og:site_name" content="邪王真眼的博客">
+<meta property="og:description" content="路由器NAT">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/05/29/EhAxKnPQFvN1IjS.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/29/7v5p4XNSgiCwdlJ.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/29/6ktGIpVTAg9S1qv.png">
+<meta property="article:published_time" content="2020-05-29T03:37:16.000Z">
+<meta property="article:modified_time" content="2020-05-29T03:55:27.756Z">
 <meta property="article:author" content="邪王真眼">
+<meta property="article:tag" content="网络ing">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/29/EhAxKnPQFvN1IjS.png">
   
     <link rel="alternative" href="/atom.xml" title="邪王真眼的博客" type="application/atom+xml">
   
@@ -313,59 +322,292 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-路由器NAT扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/26/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-26T13:06:54.372Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/26/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      路由器NAT扩展
     </h1>
   
 
-        <div class="article-info info-on-right">
+       
+       
+       
+
+
+
+        
+        <a href="/2020/05/29/%E8%B7%AF%E7%94%B1%E5%99%A8NAT%E6%89%A9%E5%B1%95/" class="archive-article-date">
+  	<time datetime="2020-05-29T03:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="路由器NAT"><a href="#路由器NAT" class="headerlink" title="路由器NAT"></a>路由器NAT</h1><a id="more"></a>
+<h3 id="什么是NAT？"><a href="#什么是NAT？" class="headerlink" title="什么是NAT？"></a>什么是NAT？</h3><blockquote>
+<p>NAT英文全称是“Network Address Translation”，中文意思是“网络地址转换”，它是一个IETF标准，它是一种把内部私有网络地址（IP地址）翻译成合法网络IP地址的技术。NAT 可以让那些使用私有地址的内部网络连接到Internet或其它IP网络上。NAT路由器在将内部网络的数据包发送到公用网络时，在IP包的报头把私有地址转换成合法的IP地址。</p>
+</blockquote>
+<h4 id="RFC1918规定了三块专有的地址，作为私有的内部组网使用"><a href="#RFC1918规定了三块专有的地址，作为私有的内部组网使用" class="headerlink" title="RFC1918规定了三块专有的地址，作为私有的内部组网使用"></a>RFC1918规定了三块专有的地址，作为私有的内部组网使用</h4><blockquote>
+<p>A类：10.0.0.0—10.255.255.255        10.0.0.0/8</p>
+</blockquote>
+<blockquote>
+<p>B类：172.16.0.0—172.31.255.255      172.16.0.0/12</p>
+</blockquote>
+<blockquote>
+<p>C类：192.168.0.0—192.168.255.255   192.168.0.0/16</p>
+</blockquote>
+<h3 id="网络配置NAT的意义"><a href="#网络配置NAT的意义" class="headerlink" title="网络配置NAT的意义"></a>网络配置NAT的意义</h3><blockquote>
+<p>除了节约IP资源还有安全的作用。当一个公司内部配置了这些私有地址后，内部的计算机在和外网通信时，公司的边界路由会通过NAT技术，将内部的私有地址转换成外网IP，外部看到的源地址是公司边界路由转换过的公网IP地址，这在某种意义上也增加了内部网络的安全性。</p>
+</blockquote>
+<h3 id="NAT的三种类型"><a href="#NAT的三种类型" class="headerlink" title="NAT的三种类型"></a>NAT的三种类型</h3><p>（1）静态 NAT ( Static NAT )（ 一对一 ）。将内部网络的私有IP地址转换为公有IP地址，IP地址对是一对一的，是一直不变的。<br><img src="https://i.loli.net/2020/05/29/EhAxKnPQFvN1IjS.png" alt=""></p>
+<blockquote>
+<p>命令：ip nat inside source static A.B.C.D A.B.C.D   </p>
+</blockquote>
+<p>（2）动态地址 NAT ( Pooled NAT )（多对多）。将内部网络的私有 IP 地址转换为公用 IP 地址时，IP 地址是不确定，随机的。所有被授权访问 Internet 的私有 IP 地址可随机转换为任何指定合法的 IP 地址。也就是说，只要指定哪些内部地址可以进行转换，以及用哪些合法地址作为外部地址时，就可以进行动态 NAT 转换。动态 NAT 是在路由器上配置一个外网 IP 地址池，当内部有计算机需要和外部通信时，就从地址池里动态的取出一个外网 IP，并将他们的对应关系绑定到 NAT 表中，通信结束后，这个外网 IP 才被释放，可供其他内部 IP 地址转换使用。当 ISP 提供的合法 IP 地址略少于网络内部的计算机数量时。可以采用动态转换的方式。<br><img src="https://i.loli.net/2020/05/29/7v5p4XNSgiCwdlJ.png" alt=""></p>
+<blockquote>
+<p>命令：ip nat inside source list 2 pool qing</p>
+</blockquote>
+<p>（3）网络地址端口转换 NAPT（Network Address Port Translation）（Port-Level NAT）（ 多对一 ）。改变外出数据包的源端口并进行端口转换，采用端口多路复用方式。内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问，可以最大限度地节约 IP 地址资源。同时，也可以隐藏网络内部的所有主机，有效避免来自 Internet 的攻击。因此，目前网络中应用最多的就是这种端口多路复用方式。<br><img src="https://i.loli.net/2020/05/29/6ktGIpVTAg9S1qv.png" alt=""></p>
+<blockquote>
+<p>命令：ip nat inside source list 2 pool qing overload</p>
+</blockquote>
+<h3 id="相关配置代码"><a href="#相关配置代码" class="headerlink" title="相关配置代码"></a>相关配置代码</h3><p>在路由器上配置动态NAT：</p>
+<blockquote>
+<p>Router (config)#int f0/0</p>
+<p>Router (config-if)ip nat inside</p>
+<p>Router (config)#int s0/0</p>
+<p>Router (config-if)ip nat outside</p>
+<p>Router (config)#access-list 10 permit 192.168.1.0  0.0.0.255</p>
+<p>Router(config)#ip nat inside source list 10 interface s0/0</p>
+</blockquote>
+<p>在路由器上配置静态NAT(将外部主机的80端口静态映射给内部Web服务器的80端口)：</p>
+<blockquote>
+<p>Router(config)#ip nat inside source static tcp 192.168.1.20 80  211.1.1.1 80</p>
+</blockquote>
+<p>在路由器上配置NAT地址池:</p>
+<blockquote>
+<p>Router (config)#ip nat pool ccc 211.1.1.100  211.1.1.200  netmask  255.255.255.0</p>
+<p>Router (config)#ip nat inside source list 10 pool ccc overload</p>
+</blockquote>
+<p>查看NAT状态转换表:</p>
+<blockquote>
+<p>Router#sh ip nat translations</p>
+</blockquote>
+
+      
+
+      
+    
+      <div class="declare" hidden="hidden"></div>
+    
+
+
+
+
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zf1.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wx1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
           
+          
+            <br/>
+            <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+            <span class="icon-sort"></span>
+            <span id="busuanzi_container_page_pv" style="color:#242121;font-size:14px;">
+                      阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+            </span>
+            </a>
+          
+            
+              <section id="comments" class="comments">
+                <style>
+                  .comments{margin:30px;padding:10px;background:#fff}
+                  @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+                </style>
+                <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "kcuJulOLBf3hC9TjWPBPY6a5-gzGzoHsz",
+            app_key: "6krcFdhPSaxFe1bVvPXMw7xg",
+            placeholder: "Just go go",
+            avatar:"retro"
+        });
+    }
+</script>
+            </section>
+          
+          
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">网络ing</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://xyzwd.github.io/2020/05/29/%E8%B7%AF%E7%94%B1%E5%99%A8NAT%E6%89%A9%E5%B1%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/29/%E7%AE%80%E5%8D%95%E7%9A%84%E5%8A%A8%E7%94%BB%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单的动画放大效果</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#路由器NAT"><span class="toc-number">1.</span> <span class="toc-text">路由器NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是NAT？"><span class="toc-number">1.0.1.</span> <span class="toc-text">什么是NAT？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RFC1918规定了三块专有的地址，作为私有的内部组网使用"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">RFC1918规定了三块专有的地址，作为私有的内部组网使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络配置NAT的意义"><span class="toc-number">1.0.2.</span> <span class="toc-text">网络配置NAT的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NAT的三种类型"><span class="toc-number">1.0.3.</span> <span class="toc-text">NAT的三种类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关配置代码"><span class="toc-number">1.0.4.</span> <span class="toc-text">相关配置代码</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -428,9 +670,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

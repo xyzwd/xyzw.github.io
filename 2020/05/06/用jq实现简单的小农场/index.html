@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/06/yfhKI4xoQUYD2Wa.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/06/5zLwpYtAQevaui8.png">
 <meta property="article:published_time" content="2020-05-06T10:10:18.000Z">
-<meta property="article:modified_time" content="2020-05-28T01:34:44.005Z">
+<meta property="article:modified_time" content="2020-05-29T03:17:27.067Z">
 <meta property="article:author" content="邪王真眼">
 <meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
@@ -354,9 +354,21 @@
 <p>css：div{<br>    font-size:12px;<br>    border:#999 1px solid;<br>    padding:5px;<br>}<br>#bg{        /<em>控制页面背景</em>/<br>    width:456px;<br>    height:266px;<br>    background-image:url(images/plowland.jpg);<br>}<br>img{        /<em>控制图片</em>/<br>    position:absolute;<br>    top:85px;<br>    left:195px;<br>}<br>#seed{        /<em>控制播种按钮</em>/<br>    background-image:url(images/btn_seed.png);<br>    width:56px;<br>    height:56px;<br>    position:absolute;<br>    top:229px;<br>    left:49px;<br>    cursor:hand;<br>}<br>#grow{        /<em>控制生长按钮</em>/<br>    background-image:url(images/btn_grow.png);<br>    width:56px;<br>    height:56px;<br>    position:absolute;<br>    top:229px;<br>    left:154px;<br>    cursor:hand;<br>}<br>#bloom{        /<em>控制开花按钮</em>/<br>    background-image:url(images/btn_bloom.png);<br>    width:56px;<br>    height:56px;<br>    position:absolute;<br>    top:229px;<br>    left:259px;<br>    cursor:hand;<br>}<br>#fruit{        /<em>控制结果按钮</em>/<br>    background-image:url(images/btn_fruit.png);<br>    width:56px;<br>    height:56px;<br>    position:absolute;<br>    top:229px;<br>    left:368px;<br>    cursor:hand;<br>}</p>
 </blockquote>
 <blockquote>
-<p>js部分:<br>    $(function(){<br>        $(“#seed”).click(function(){<br>            $(“#bg”).append(“<span id='add'> <img src=images/seed.png/> </span>“);        //注意这里的图片要打引号<br>        });<br>        $(“#grow”).click(function(){<br>            $(“#add”).remove();<br>        $(“#bloom”).click(function(){<br>            $(“#bg”).append(“<span id='add'> <img src=images/bloom.png/> </span>“);//注意这里的图片要打引号<br>        });<br>        $(“#fruit”).click(function(){<br>            $(“#bg”).append(“<span id='add'> <img src=images/fruit.png/> </span>“);//注意这里的图片要打引号<br>        });<br>    })</p>
+<p>js部分:</p>
 </blockquote>
-<blockquote>
+<pre><code>$(function(){
+    $(&quot;#seed&quot;).click(function(){
+        $(&quot;#bg&quot;).append(&quot;&lt;span id=&apos;add&apos;&gt; &lt;img src=images/seed.png/&gt; &lt;/span&gt;&quot;);        //注意这里的图片要打引号
+    });
+    $(&quot;#grow&quot;).click(function(){
+        $(&quot;#add&quot;).remove();
+    $(&quot;#bloom&quot;).click(function(){
+        $(&quot;#bg&quot;).append(&quot;&lt;span id=&apos;add&apos;&gt; &lt;img src=images/bloom.png/&gt; &lt;/span&gt;&quot;);//注意这里的图片要打引号
+    });
+    $(&quot;#fruit&quot;).click(function(){
+        $(&quot;#bg&quot;).append(&quot;&lt;span id=&apos;add&apos;&gt; &lt;img src=images/fruit.png/&gt; &lt;/span&gt;&quot;);//注意这里的图片要打引号
+    });
+})</code></pre><blockquote>
 <p>html部分：<br><img src="https://i.loli.net/2020/05/06/5zLwpYtAQevaui8.png" alt=""></p>
 </blockquote>
 
@@ -519,6 +531,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/29/%E7%AE%80%E5%8D%95%E7%9A%84%E5%8A%A8%E7%94%BB%E6%94%BE%E5%A4%A7%E6%95%88%E6%9E%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          简单的动画放大效果
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/30/hexo%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%86%8C%E7%9A%84%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
@@ -710,6 +731,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">网络ing</a>
               </li>
              
               <li class="article-tag-list-item">
